@@ -7,6 +7,12 @@
 
 * [Unity robotics hub](https://github.com/Unity-Technologies/Unity-Robotics-Hub) <-contains URDF importer
 ## Starting project
-`docker-compose up` -> (Rebuild from scratch) `docker-compose build --no-cache`
 
-`docker exec -it project_ros_hololens_mediator_1 bash`
+Launch docker: `./bin/run.sh --type=cpu` 
+
+Running mediator:
+* `roscore`
+* `rosrun mediator scale_grid_map_server`
+
+Get Sample data via:
+* `roslaunch grid_map_demos simple_demo.launch`

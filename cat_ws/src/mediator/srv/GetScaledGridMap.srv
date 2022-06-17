@@ -1,0 +1,5 @@
+# Resolution in [meters/cell]     -> ex:  0.0345919
+float64 resolution 
+---
+# Submap
+grid_map_msgs/GridMap map

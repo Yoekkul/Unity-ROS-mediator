@@ -1,0 +1,6 @@
+[submodule "cat_ws/src/grid_map"]
+	path = cat_ws/src/grid_map
+	url = https://github.com/anybotics/grid_map/
+[submodule "cat_ws/src/ROS-TCP-Endpoint"]
+	path = cat_ws/src/ROS-TCP-Endpoint
+	url = https://github.com/Unity-Technologies/ROS-TCP-Endpoint

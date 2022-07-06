@@ -26,7 +26,7 @@ int main(int argc, char **argv){
     ros::init(argc,argv, "scale_grid_map_server");
     ros::NodeHandle n;
 
-    ros::Subscriber sub = n.subscribe("/grid_map_simple_demo/grid_map", 1000, map_update_callback);
+    ros::Subscriber sub = n.subscribe("/elevation_mapping/elevation_map", 1000, map_update_callback);
     ros::ServiceServer service = n.advertiseService("scale_grid_map",scale_map);
     ROS_INFO("Ready to simplify map");
     ros::spin();

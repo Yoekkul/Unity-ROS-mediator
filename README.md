@@ -16,3 +16,6 @@ Launch docker: `./bin/run.sh --type=cpu`
 
 **Get Sample data via:**
 * `roslaunch grid_map_demos simple_demo.launch`
+
+**Running TCP connector**
+* `roslaunch ros_tcp_endpoint endpoint.launch`

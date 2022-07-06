@@ -11,11 +11,7 @@ The goal of the Mediator is to provide an interface which a Unity-based client c
 Launch docker: `./bin/run.sh --type=cpu` 
 
 **Running mediator:**
-* `roscore`
-* `rosrun mediator scale_grid_map_server`
+* `roslaunch mediator mediator.launch`
 
 **Get Sample data via:**
-* `roslaunch grid_map_demos simple_demo.launch`
-
-**Running TCP connector**
-* `roslaunch ros_tcp_endpoint endpoint.launch`
+* `time rosbag play -r 5 -l heap_state_2022-06-23-10-06-18.bag  heap_grid_map_2022-06-23-10-06-18.bag`

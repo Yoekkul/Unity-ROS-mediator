@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   grid_map_ros
   grid_map_cv
   message_generation
+  m545_msgs
 )
 
 # # System dependencies are found with CMake's conventions
@@ -60,6 +61,7 @@ find_package(catkin REQUIRED COMPONENTS
 add_service_files(
   FILES
   GetScaledGridMap.srv
+  GetStateServed.srv
 )
 
 # # Generate actions in the 'action' folder
@@ -74,6 +76,7 @@ generate_messages(
   DEPENDENCIES
   std_msgs
   grid_map_msgs
+  m545_msgs
 )
 
 # ###############################################

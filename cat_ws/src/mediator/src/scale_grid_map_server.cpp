@@ -6,13 +6,16 @@
 #include <mediator/GetStateServed.h>
 
 #include <m545_msgs/M545State.h>
-//#include <m545_msgs>
 
 grid_map::GridMap map;
 m545_msgs::M545State state;
 
+// Step 3. --------------- Utility functions --------------------------
+
+// The map gets scaled in the same way as shown in the grid_map resolution_change demo -> https://github.com/ANYbotics/grid_map/blob/master/grid_map_demos/src/resolution_change_demo_node.cpp
+// This service receives the desired resolution and scales the grid_map down to it
 bool scale_map(mediator::GetScaledGridMap::Request &req, mediator::GetScaledGridMap::Response &res){
-    //TODO How can I get the proper map?
+
     grid_map::GridMap modifiedMap;
     grid_map::GridMapCvProcessing::changeResolution(map, modifiedMap, req.resolution);
 
@@ -24,6 +27,8 @@ bool scale_map(mediator::GetScaledGridMap::Request &req, mediator::GetScaledGrid
     return true;
 }
 
+
+// The state of the machine is returned to the service caller (It contains for instance joint angles and machine position)
 bool get_state(mediator::GetStateServed::Request &req, mediator::GetStateServed::Response &res){
 
     res.state = state;
@@ -31,15 +36,20 @@ bool get_state(mediator::GetStateServed::Request &req, mediator::GetStateServed:
     return true;
 }
 
+// Step 2. --------------- Callbacks ----------------------
+
 void map_update_callback(const grid_map_msgs::GridMap &message){
     grid_map::GridMapRosConverter::fromMessage(message, map);
     //ROS_INFO("Received new grid map");
 }
 
 void state_update_callback(const m545_msgs::M545State &message){
-    state = message;    //TODO chec nothing gets lost here
+    state = message;
     //ROS_INFO("new State");
 }
+
+
+// Step 1. --------------- Main Function ----------------------
 
 int main(int argc, char **argv){
     ros::init(argc,argv, "scale_grid_map_server");
